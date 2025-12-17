@@ -1,0 +1,6 @@
+FROM nginx:latest
+
+# Copier le fichier de config par défaut si tu ne le montes pas en volume
+# COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
