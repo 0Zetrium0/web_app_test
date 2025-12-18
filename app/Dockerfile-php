@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 FROM php:8.0.2-fpm
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 WORKDIR /var/www/html
 COPY . .
-# RUN docker-php-ext-install mysqli pdo pdo_mysql gd -- Je veux d'abord tester sans la bdd
 EXPOSE 9000

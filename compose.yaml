@@ -2,20 +2,28 @@ services:
   nginx:
     build:
       context: .
-      dockerfile: Dockerfile-nginx
+      dockerfile: nginx/Dockerfile-nginx
     ports:
       - "8080:80"
     volumes:
-      - ./index.php:/var/www/html/index.php
-      - ./images:/var/www/html/images      
+      - ./app/index.php:/var/www/html/index.php
+      - ./app/images:/var/www/html/images
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
 
-  php: 
+  php:
     build:
       context: .
-      dockerfile: Dockerfile-php
+      dockerfile: app/Dockerfile-php
     volumes:
-      - ./index.php:/var/www/html/index.php
-      - ./images:/var/www/html/images
+      - ./app/index.php:/var/www/html/index.php
+      - ./app/images:/var/www/html/images
+    depends_on:
+      - mysql
+  mysql:
+    build:
+      context: .
+      dockerfile: database/Dockerfile-mysql
+    ports:
+      - "3306:3306"

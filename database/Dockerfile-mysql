@@ -1,0 +1,8 @@
+FROM mysql:latest
+
+COPY database/init.sql /docker-entrypoint-initdb.d/
+
+ENV MYSQL_ROOT_PASSWORD=docker_test_2025
+ENV MYSQL_DATABASE=web_app
+
+EXPOSE 3306
