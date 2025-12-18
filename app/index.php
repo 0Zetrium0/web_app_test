@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-// Ensuite seulement, tu peux afficher le HTML
 ?>
 <!DOCTYPE html>
 <html lang="fr">
